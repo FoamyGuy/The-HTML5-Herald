@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  <style type="text/css">
+        input {
+            background-position: 0% 50%;
+            background-repeat: no-repeat;
+            padding-left: 35px;
+        }
+
+        input[required] {
+            background-image: url('../images/required.png');
+        }
+        input:focus:invalid {
+            background-image: url('../images/invalid.png');
+        }
+        input:focus:valid {
+            background-image: url('../images/valid.png');
+        }
+        
+        input[type="text"]{
+            background-color: #BBB;
+        }
+        input[type="email"]{
+            background-color: #BBF;
+        }
+        input[type="password"]{
+            background-color: #FBB;
+        }
+        input[type="url"]{
+            background-color: #BF9;
+        }
+        
+        input[value~=Clear]{
+            background-color: #FBF;
+        }
+        
+        label[for^=register] {
+            font-style: oblique;
+        }
+        
+        label[for*=e] {
+            background-color: #AFF;
+        }
+            
+        
+        
+   
+  </style>
+  </head>
+<body>
+<form id="register" method="post">
+<header>
+    <h1>Autofocus Datalist &amp; Exploring Types</h1>
+</header>
+
+<ul>
+
+    <li>
+        <label for="favcolor">What is your favorite color:</label>
+        <input type="color" list="colors" id="favcolor" name="favcolor">
+        <datalist id="colors">
+            <option value="#0000EE" label="blue">
+            <option value="#008000" label="green">
+            <option value="#FF0000" label="red">
+            <option value="#663399" label="RebeccaPurple">
+        </datalist>
+    </li>
+    
+    <li>
+        <label for="register-name">My name is:</label>
+        <input type="text" id="name" name="name" autofocus="true">
+    </li>
+    
+    
+    <li>
+        <label for="register-address">My email address is:</label>
+        <input type="email" id="address" name="address" required="true">
+    </li>
+    
+    <li>
+        <label for="quantity">I would like to receive <input type="number" id="quantity" name="quantity"> copies of <cite>The HTML5 Herald</cite>.</label>
+    </li>
+    
+    <li>
+        <label for="url">My website is located at:</label>
+        <input type="url" id="url" name="url" placeholder="e.g. http://example.com">
+    </li>
+    
+    <li>
+        <label for="startdate">Please start my subscription on:</label>
+        <input type="date" min="2016-01-01" max="2016-12-15" id="startdate" name="startdate" required="true">
+    </li>
+    
+    <li>
+        <label for="rating">On a scale of 1 to 10 my knowledge of HTML5 is:</label>
+        <input type="range" min="0" max="10" id="rating" name="rating">
+    </li>
+    
+    
+    <li>
+        <input type="submit" id="register-submit" value="Send Post Haste">
+    </li>
+    
+    <li>
+        <input type="button" id="register-clear" value="Clear Post Haste">
+    </li>
+    
+
+    
+
+    
+</ul>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js" type="text/javascript"></script>
+  </body>
+
+</html>

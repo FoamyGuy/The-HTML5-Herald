@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" manifest="herald.appcache">
+<head>
+</head>
+<body>
+
+<header>
+    <h1>progress output, and meter tags</h1>
+</header>
+
+<progress value="30" max="100">70 %</progress><br />
+<progress ></progress>
+<p>Heat the oven to 325 degrees.<meter min="200" max="500" value="325"></meter>.</p>
+
+
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+    <input type="range" name="b" value="50" /> +
+    <input type="number" name="a" value="10" /> =
+    <output name="result"></output>
+</form>
+
+
+<p>Go to <a href="http://wikipedia.com">wikipedia</a> and play with contenteditable attribute</p>
+
+</body>

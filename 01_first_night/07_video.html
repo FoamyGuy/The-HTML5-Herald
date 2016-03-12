@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en" manifest="herald.appcache">
+<head>
+</head>
+<body>
+
+<header>
+    <h1>Video</h1>
+</header>
+
+<!-- Basic <video> tag usage -->
+<video src="video.mp4">
+  Sorry, your browser doesn't support embedded videos, 
+  but don't worry, you can <a href="video.mp4">download it</a>
+  and watch it with your favorite video player!
+</video>
+<p>No controls and no autoplay means we can't play the video :(<p>
+
+
+<!-- add the controls and specify size -->
+<video src="video.mp4" width="400" height="300" controls>
+  Sorry, your browser doesn't support embedded videos, 
+  but don't worry, you can <a href="video.mp4">download it</a>
+  and watch it with your favorite video player!
+</video>
+<p>Now we can play it</p>
+
+<!-- loop and poster -->
+<video src="video.mp4" controls loop poster="video_poster.png">
+  Sorry, your browser doesn't support embedded videos, 
+  but don't worry, you can <a href="video.mp4">download it</a>
+  and watch it with your favorite video player!
+</video>
+<p>Looping and with a poster</p>
+</body>
+
+<!-- loop and poster -->
+<video id="custom-control-video" src="video.mp4" loop poster="video_poster.png">
+  Sorry, your browser doesn't support embedded videos, 
+  but don't worry, you can <a href="video.mp4">download it</a>
+  and watch it with your favorite video player!
+</video>
+
+<div id="controls">
+    <a id="play-btn" onclick="play();"></a>
+    <span id="timer">00:00</span>
+    <a id="pause-btn" onclick="pause();"></a>
+</div>
+<p>Custom controls</p>
+
+
+<style>
+#controls{
+    display: inline-block;
+    background-color: #AAA;
+    opacity: 0.6;
+    position: relative;
+    width:640px;
+    top: -55px;
+    
+}
+#play-btn{
+    background-image: url("play.png");
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    display: block;
+    float: left;
+    margin-left: 5px;
+}
+#timer{
+    display:table;
+    margin:0 auto;
+    text-align: center;
+    width: 530px;
+    font-size: 2.4em;
+}
+#pause-btn{
+    float: right;
+    background-image: url("pause.png");
+    background-size: 50px 50px;
+    width: 50px;
+    height: 50px;
+    display: block;
+    margin-left: 5px;
+}
+
+#timer{
+    float: left;
+}
+</style>
+
+
+<script type="text/javascript">
+    
+    window.onload = function(){
+        var customControlVideo = document.getElementById("custom-control-video");
+        var timer = document.getElementById("timer");
+        customControlVideo.addEventListener('timeupdate', function() {
+            console.log("time update");
+            timer.innerHTML = formatTime(customControlVideo.currentTime);
+        }, false);
+    };
+    function play(){
+        document.getElementById("custom-control-video").play();
+    }
+    
+    function pause(){
+        document.getElementById("custom-control-video").pause();
+    }
+    
+    function formatTime(s){
+        var h = Math.floor(s / (60 * 60));
+        var dm = s % (60 * 60);
+        var m = Math.floor(dm / 60);
+        var ds = dm % 60;
+        var secs = Math.ceil(ds);
+        
+        if(secs === 60){
+            secs = 0;
+            m = m + 1;
+        }
+        
+        if (secs < 10){
+            secs = '0' + secs;
+        }
+        
+        if (m === 60){
+            m = 0;
+            h = h + 1;
+        }
+        
+        if (m < 10){
+            m  = '0' + m;
+        }
+        
+        if(h === 0){
+            fulltime = m + ':' + secs;
+        } else {
+            fulltime = h + ":" + m + ':' + secs;
+        }
+        
+        return fulltime;
+        
+    }
+</script>
+</body>
