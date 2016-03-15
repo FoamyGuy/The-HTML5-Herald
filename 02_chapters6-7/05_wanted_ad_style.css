@@ -236,6 +236,7 @@ aside {
     width: 236px;
     border: 1px solid #ccc;
     margin-bottom: 5px; }
+
   aside p + a {
   /* 
   Add the style from the book here.
@@ -244,6 +245,10 @@ aside {
   
   }
 
+a.wanted:hover {
+
+}
+
 .draganddrop .mc {
   text-align: center; }
 
@@ -251,11 +256,7 @@ aside {
   visibility: hidden;
   height: 0; }
 
-a.wanted:hover {
-  box-shadow: 4px 10px #484848;
-  top: -5px;
-  left: -2px;
-  position: relative; }
+
 
 .holding {
   /* WebKit */
