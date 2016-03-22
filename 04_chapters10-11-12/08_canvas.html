@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!--[if lte IE 6]><html class="preIE7 preIE8 preIE9"><![endif]-->
+<!--[if IE 7]><html class="preIE8 preIE9"><![endif]-->
+<!--[if IE 8]><html class="preIE9"><![endif]-->
+<!--[if gte IE 9]><!--><html><!--<![endif]-->
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+  <style type="text/css">
+   
+  </style>
+  </head>
+  <body>
+  
+      <canvas id="myCanvas" width="400" height="400" style="border:1px solid #000000;">
+</canvas>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.5.3/modernizr.min.js" type="text/javascript"></script>
+      
+      <script>
+      
+
+        
+          var c = document.getElementById("myCanvas");
+          var ctx = c.getContext("2d");
+          ctx.fillStyle = "#FF0000";
+          ctx.fillRect(0,0,150,75);
+          
+          function clear(){
+
+           ctx.clearRect(0, 0, c.width, c.height);   
+          }
+          
+          function line(){
+            ctx.moveTo(0,0);
+            ctx.lineTo(200,100);
+            ctx.stroke();   
+          }
+          
+          function circle(){
+            ctx.beginPath();
+            ctx.arc(95,50,40,0,2*Math.PI);
+            ctx.stroke();   
+          }
+          
+          function text(){
+            ctx.font = "30px Arial";
+            ctx.fillText("Hello World",10,50);   
+          }
+          
+          function strokeText(){
+            ctx.font = "30px Arial";
+            ctx.strokeText("Hello World",10,50);   
+          }
+          
+          function linearGradient(){
+            // Create gradient
+            var grd = ctx.createLinearGradient(0,0,200,0);
+            grd.addColorStop(0,"red");
+            grd.addColorStop(1,"white");
+
+            // Fill with gradient
+            ctx.fillStyle = grd;
+            ctx.fillRect(10,10,150,80);   
+          }
+          
+          function circleGradient(){
+           // Create gradient
+            var grd = ctx.createRadialGradient(75,50,5,90,60,100);
+            grd.addColorStop(0,"red");
+            grd.addColorStop(1,"white");
+
+            // Fill with gradient
+            ctx.fillStyle = grd;
+            ctx.fillRect(10,10,150,80);   
+          }
+          
+          function gradientText(){
+            ctx.font="20px Georgia";
+            ctx.fillText("Hello World!",10,50);
+
+            ctx.font="30px Verdana";
+            // Create gradient
+            var gradient=ctx.createLinearGradient(0,0,c.width,0);
+            gradient.addColorStop("0","magenta");
+            gradient.addColorStop("0.5","blue");
+            gradient.addColorStop("1.0","red");
+            // Fill with gradient
+            ctx.fillStyle=gradient;
+            ctx.fillText("Big smile!",10,90);   
+          }
+          
+          
+
+
+      </script>
+  </body>
+</html>
